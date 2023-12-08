@@ -4,20 +4,11 @@ public class BankAccountFacade {
     private PINValidator pinValidator = new PINValidator();
     private TransactionManager transaction = new TransactionManager();
     private Display display = new Display();
-
-    private int accountNumber;
-    private int pin;
-
-    public BankAccountFacade(int accountNumber, int pin){
-        this.accountNumber = accountNumber;
-        this.pin = pin;
-    }
-
     public void doTransaction(){
-        if(accountNumberValidator.validateAccount(this.accountNumber) && pinValidator.validatePin(this.pin)){
+        if(accountNumberValidator.validateAccount(display.askAccountNumber()) && pinValidator.validatePin(display.askPIN())){
             transaction.transuck();
         } else {
-            System.out.println("Incorrect Credentials!");
+            display.invalid();
         }
     }
 }
