@@ -4,10 +4,6 @@ import java.util.Scanner;
 
 public class Display {
     Scanner sc = new Scanner(System.in);
-
-    public Display(){
-
-    }
     public void welcome(){
         System.out.println("Welcome to FacadeBank!\nYes that is our name and yes, WE ARE LEGIT.");
     }
@@ -19,6 +15,7 @@ public class Display {
     }
 
     public int askAccountNumber(){
+        welcome();
         System.out.print("\nEnter account number: ");
         return sc.nextInt();
     }
@@ -26,6 +23,9 @@ public class Display {
     public int askPIN(){
         System.out.print("Enter PIN: ");
         return sc.nextInt();
+    }
+    public void invalid(){
+        System.out.println("Incorrect Credentials!");
     }
     public void thankYou(){
         System.out.println("\n\nThank you for using FacadeBank!\nYour #1 Trusted Bank");
