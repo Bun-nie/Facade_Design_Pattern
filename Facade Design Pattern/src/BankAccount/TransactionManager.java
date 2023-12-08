@@ -1,20 +1,13 @@
 package BankAccount;
-
 import java.util.Scanner;
-
 public class TransactionManager {
     Scanner sc = new Scanner(System.in);
     BalanceChecker balanceChecker = new BalanceChecker();
     Display display = new Display();
-    private int option;
-    private char c = 'Y';
-
-    public TransactionManager() {
-    }
-
     public void transuck(){
+        char c;
         do {
-            option = display.menu();
+            int option = display.menu();
             switch (option) {
                 case 1:
                     deposit();
@@ -31,7 +24,7 @@ public class TransactionManager {
             }
             System.out.print("Would you like to do another transaction? [Y/N]: ");
             c = sc.next().charAt(0);
-        } while (c != 'N');
+        } while (c != 'N' && c != 'n');
         display.thankYou();
     }
 
